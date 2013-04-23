@@ -9,7 +9,7 @@
 
 {% block content %}
     <h1 id="home-head" class="heading">Paste image here</h1>
-    <p id="home-expl">Copy an image to the clipboard and then press <b>Ctrl-V</b> to paste it into stick.im.</p>
+    <p id="home-expl">Copy an image to the clipboard and then press <b class="shortcut-key">Ctrl-V</b> to paste it into stick.im.</p>
 
 
     {% wire id=#submit type="submit" postback={upload} delegate=`stickim` %}
