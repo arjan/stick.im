@@ -5,11 +5,12 @@
 
 %% interface functions
 -export([
-    m_find_value/3,
-    m_to_list/2,
+         m_find_value/3,
+         m_to_list/2,
          m_value/2,
-
-         get/2
+         
+         get/2,
+         insert/3
 ]).
 
 -include_lib("zotonic.hrl").
@@ -40,3 +41,7 @@ get(Id, Context) ->
         end,
     z_depcache:memo(F, {stickim, Id}, 3600, Context).
                                  
+insert(Id, Props, Context) ->
+    {ok, _} = z_db:insert(stickim, [{id, Id}|Props], Context),
+    z_depcache:flush({stickim, Id}, Context),
+    ok.

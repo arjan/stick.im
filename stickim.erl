@@ -63,7 +63,7 @@ event(#submit{message={upload, _Args}}, Context) ->
     %% Decode data and write to disk
     
     "data:image/png;base64," ++ Base64Data = z_context:get_q_validated("imgdata", Context),
-    [FirstChar|_] = Id = z_ids:id(),
+    [FirstChar|_] = Id = make_id(Context),
     Path = [FirstChar] ++ "/" ++ Id ++ ".png",
     Dir = z_path:files_subdir_ensure("stickim/" ++ [FirstChar], Context),
     TargetFile = filename:join(Dir, Id ++ ".png"),
@@ -81,9 +81,9 @@ event(#submit{message={upload, _Args}}, Context) ->
     Title = z_html:escape(z_context:get_q("title", Context)),
     Theme = z_html:escape(z_context:get_q("theme", Context)),
     
-    {ok, _} = z_db:insert(stickim,
+    ok = m_stickim:insert(Id,
                           [
-                           {id, Id}, {path, Path},
+                           {path, Path},
                            {title, Title},
                            {theme, Theme},
                            {ip, Ip},
@@ -105,3 +105,20 @@ file_exists(F, Context) ->
 
 file_forbidden(_, _) ->
     false.
+
+
+make_id(Context) ->
+    make_id(z_ids:id(), 3, Context).
+
+make_id(Str, Len, Context) when Len >= length(Str) ->
+    make_id(Context);
+
+make_id(Src, Len, Context) ->
+    Id = lists:sublist(Src, Len),
+    lager:warning("Id: ~p", [Id]),
+    case m_stickim:get(Id, Context) of
+        {error, notfound} ->
+            Id;
+        {ok, _} ->
+            make_id(Src, Len+1, Context)
+    end.
