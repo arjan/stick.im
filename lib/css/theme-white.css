@@ -1,0 +1,8 @@
+body {
+  background: #f0f0f0; }
+  body h1.heading {
+    color: #333333; }
+  body div.social {
+    border-top: 1px solid #dddddd; }
+    body div.social .meta a {
+      color: #333333; }

@@ -1,0 +1,8 @@
+body {
+  background: url(/lib/images/checker.png); }
+  body h1.heading {
+    color: black; }
+  body div.social {
+    border-top: 1px solid #666666; }
+    body div.social .meta a {
+      color: black; }

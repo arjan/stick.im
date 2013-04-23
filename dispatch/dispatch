@@ -1,0 +1,9 @@
+%% -*- mode: erlang -*-
+%% Put your dispatch rules here.
+[
+ {home,    [],	controller_template,  	[ {template, "home.tpl"} ]},
+ {notsupported, ["not-supported"], controller_template, [{template, "notsupported.tpl"}]},
+ {stickim, ["s", id], controller_stickim, []},
+ {stickimg,["i",'*'],          controller_file_readonly, [{use_cache, true}, {root, [{module, stickim}]}]}
+
+].

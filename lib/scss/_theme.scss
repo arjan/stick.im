@@ -1,0 +1,16 @@
+body {
+    background: $background;
+
+    h1.heading {
+        color: $foreground;
+    }
+
+    div.social {
+        border-top: 1px solid $middlecolor;
+        .meta a {
+            color: $foreground;
+        }
+
+    }        
+}
+
