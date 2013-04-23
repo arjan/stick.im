@@ -72,7 +72,6 @@ event(#submit{message={upload, _Args}}, Context) ->
     {Peer, _} = webmachine_request:get_peer(z_context:get_reqdata(Context)),
     {ok, ParsedPeer} = inet_parse:address(Peer),
     Ip = inet_parse:ntoa(ParsedPeer),
-    lager:warning("Ip: ~p", [Ip]),
 
     UA = wrq:get_req_header_lc("user-agent", z_context:get_reqdata(Context)),
     
@@ -115,7 +114,6 @@ make_id(Str, Len, Context) when Len >= length(Str) ->
 
 make_id(Src, Len, Context) ->
     Id = lists:sublist(Src, Len),
-    lager:warning("Id: ~p", [Id]),
     case m_stickim:get(Id, Context) of
         {error, notfound} ->
             Id;
