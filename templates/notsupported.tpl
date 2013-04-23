@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="heading">We're sorry…</h1>
+<h1 class="heading">We are sorry…</h1>
 
 <hr />
 <p class="expl">Unfortunately, your browser does not seem to support the image copy-paste functionality that makes <b>stick.im</b> work.</a></p>
