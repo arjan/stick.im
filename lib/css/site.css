@@ -48,6 +48,7 @@ h1.heading {
   text-align: center; }
 
 div.foot {
+  text-align: right;
   position: absolute;
   bottom: 0;
   right: 0;
