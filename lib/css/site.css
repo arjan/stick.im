@@ -43,3 +43,9 @@ h1.heading {
 
 #home-expl, p.expl {
   text-align: center; }
+
+div.foot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 40px; }

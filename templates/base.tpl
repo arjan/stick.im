@@ -32,7 +32,11 @@
 		<div class="content" {% include "_language_attrs.tpl" language=z_language %}>
 		{% block content %}{% endblock %}
 		</div>
-	{% endblock %}
+	    {% endblock %}
+</div>
+
+<div class="foot">
+    Built using <a href="http://zotonic.com">Zotonic</a> by <a href="http://miraclethings.nl/">MiracleThings</a>.
 </div>
 
 {% include "_js_include.tpl" %}
