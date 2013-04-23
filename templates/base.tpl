@@ -37,7 +37,7 @@
 
 <div class="foot">
     Built using <a href="http://zotonic.com">Zotonic</a> by <a href="http://miraclethings.nl/">MiracleThings</a>.<br />
-    <a href="https://github.com/arjan/stick.im">View code on github</a>
+    View <a href="https://github.com/arjan/stick.im">source code</a>.
 </div>
 
 {% include "_js_include.tpl" %}
