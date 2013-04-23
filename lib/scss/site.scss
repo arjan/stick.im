@@ -1,3 +1,8 @@
+@mixin mainfont {
+    font-family: 'Niconne', cursive;
+    font-weight: normal;
+}
+
 @mixin imgstyle {
     margin: 40px auto;
     box-shadow: 0px 0px 40px rgba(0,0,0,0.2);
@@ -26,16 +31,15 @@ body {
             background-size:100% auto;
 
             div.hint {
-                font-family: 'Parisienne', cursive;
+                @include mainfont;
                 color: #f0f0f0;
-                font-weight: bold;
                 position: absolute;
                 margin: auto;
                 display: block;
                 width: 100%;
                 top: 45%;
                 text-align: center;
-                font-size: 70px;
+                font-size: 90px;
             }
         }
     }
@@ -54,10 +58,10 @@ div.social {
 }
 
 h1.heading {
+    @include mainfont;
     text-align: center;
-    font-family: 'Parisienne', cursive;
-    font-size: 72px;
-    line-height: 110px;
+    font-size: 96px;
+    line-height: 130px;
 }
 
 #home-expl, p.expl {
